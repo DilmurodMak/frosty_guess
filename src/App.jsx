@@ -11,8 +11,10 @@ import './styles/globals.css';
 import './App.css';
 
 function App() {
+  const basename = import.meta.env.MODE === 'production' ? '/frosty_guess' : '';
+  
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path={ROUTES.HOME} element={<LandingPage />} />
         <Route path={ROUTES.DIFFICULTY} element={<DifficultyPage />} />
