@@ -28,6 +28,9 @@ const LandingPage = () => {
           Start Game
         </Button>
       </div>
+      <div className={styles.signature}>
+        Made by Dilmurod & Ezoza
+      </div>
     </div>
   );
 };
