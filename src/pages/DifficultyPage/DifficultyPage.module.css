@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
-  height: 100vh;
-  padding: var(--space-lg);
+  min-height: 100dvh;
+  padding: calc(env(safe-area-inset-top) + var(--space-lg)) max(var(--space-lg), env(safe-area-inset-right)) calc(env(safe-area-inset-bottom) + var(--space-lg)) max(var(--space-lg), env(safe-area-inset-left));
   background-color: #e8f4f8;
   background: 
     linear-gradient(rgba(232, 244, 248, 0.7), rgba(255, 255, 255, 0.75)),
-    url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=1200&q=75&auto=format&fit=crop') center/cover no-repeat;
-  overflow: auto;
+    url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=1200&q=75&auto=format&fit=crop') center/cover no-repeat fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   position: relative;
 }
 
@@ -24,9 +26,11 @@
   font-size: var(--font-size-2xl);
   color: var(--color-text);
   margin-bottom: var(--space-md);
-  margin-top: var(--space-2xl);
+  margin-top: var(--space-md);
   text-align: center;
   padding: 0 var(--space-md);
+  position: relative;
+  z-index: 10;
 }
 
 @media (min-width: 640px) {
