@@ -1,0 +1,281 @@
+.snowmanContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  margin: 0;
+  position: relative;
+  padding: var(--space-xs) var(--space-md);
+  flex-shrink: 1;
+}
+
+@media (min-width: 640px) {
+  .snowmanContainer {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+.snowman {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.part {
+  animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Head */
+.head {
+  width: 50px;
+  height: 50px;
+  background: var(--color-snowman);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--color-snowman-shadow);
+}
+
+@media (min-width: 640px) {
+  .head {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Face */
+.face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.eyes {
+  position: absolute;
+  top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+
+.eye {
+  width: 8px;
+  height: 8px;
+  background: var(--color-button);
+  border-radius: 50%;
+}
+
+.nose {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 20px solid var(--color-carrot);
+}
+
+.mouth {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 15px;
+  border-bottom: 3px solid var(--color-button);
+  border-radius: 0 0 15px 15px;
+}
+
+/* Body */
+.body {
+  width: 65px;
+  height: 65px;
+  background: var(--color-snowman);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--color-snowman-shadow);
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .body {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.buttons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.button {
+  width: 10px;
+  height: 10px;
+  background: var(--color-button);
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* Base */
+.base {
+  width: 80px;
+  height: 80px;
+  background: var(--color-snowman);
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--color-snowman-shadow);
+}
+
+@media (min-width: 640px) {
+  .base {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Arms */
+.arms {
+  position: absolute;
+  top: 110px;
+  width: 190px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .arms {
+    top: 180px;
+    width: 290px;
+  }
+}
+
+.arm {
+  width: 40px;
+  height: 4px;
+  background: #8b4513;
+  border-radius: 2px;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .arm {
+    width: 60px;
+  }
+}
+
+.leftArm {
+  transform: rotate(150deg);
+  transform-origin: right center;
+}
+
+.rightArm {
+  transform: rotate(-150deg);
+  transform-origin: left center;
+}
+
+.arm::before,
+.arm::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 3px;
+  background: #8b4513;
+  border-radius: 2px;
+}
+
+.leftArm::before {
+  top: -8px;
+  right: 0;
+  transform: rotate(-45deg);
+}
+
+.leftArm::after {
+  bottom: -8px;
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.rightArm::before {
+  top: -8px;
+  left: 0;
+  transform: rotate(45deg);
+}
+
+.rightArm::after {
+  bottom: -8px;
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+/* Info */
+.info {
+  margin-top: var(--space-md);
+  text-align: center;
+}
+
+.attempts {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.wrongCount {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .snowmanContainer {
+    min-height: 500px;
+  }
+
+  .head {
+    width: 100px;
+    height: 100px;
+  }
+
+  .body {
+    width: 130px;
+    height: 130px;
+  }
+
+  .base {
+    width: 160px;
+    height: 160px;
+  }
+
+  .arms {
+    width: 380px;
+    top: 230px;
+  }
+
+  .arm {
+    width: 80px;
+  }
+}

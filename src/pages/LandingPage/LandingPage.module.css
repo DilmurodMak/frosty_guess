@@ -1,0 +1,177 @@
+.landingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100vh;
+  text-align: center;
+  padding: var(--space-lg);
+  background-color: #667eea;
+  background: 
+    linear-gradient(rgba(102, 126, 234, 0.65), rgba(118, 75, 162, 0.7)),
+    url('https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=800&q=60&auto=format&fit=crop') center/cover no-repeat;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .landingPage {
+    background: 
+      linear-gradient(rgba(102, 126, 234, 0.65), rgba(118, 75, 162, 0.7)),
+      url('https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=1200&q=75&auto=format&fit=crop') center/cover no-repeat;
+  }
+}
+
+@media (min-width: 768px) {
+  .landingPage {
+    background: 
+      linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)),
+      url('https://images.unsplash.com/photo-1478265409131-1f65c88f965c?w=1200&q=75&auto=format&fit=crop') center/cover no-repeat;
+    padding: var(--space-2xl);
+  }
+}
+
+/* Snowfall animation */
+.landingPage::before,
+.landingPage::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 60px 70px, white, transparent),
+    radial-gradient(1px 1px at 50px 50px, white, transparent),
+    radial-gradient(1px 1px at 130px 80px, white, transparent),
+    radial-gradient(2px 2px at 90px 10px, white, transparent),
+    radial-gradient(1px 1px at 150px 60px, white, transparent),
+    radial-gradient(2px 2px at 110px 90px, white, transparent),
+    radial-gradient(1px 1px at 40px 80px, white, transparent);
+  background-size: 200px 200px;
+  background-repeat: repeat;
+  animation: snowfall 20s linear infinite;
+  opacity: 0.8;
+}
+
+.landingPage::after {
+  background-image: 
+    radial-gradient(1px 1px at 100px 150px, white, transparent),
+    radial-gradient(2px 2px at 180px 10px, white, transparent),
+    radial-gradient(1px 1px at 160px 120px, white, transparent),
+    radial-gradient(2px 2px at 40px 140px, white, transparent),
+    radial-gradient(1px 1px at 140px 180px, white, transparent),
+    radial-gradient(2px 2px at 20px 100px, white, transparent),
+    radial-gradient(1px 1px at 80px 160px, white, transparent),
+    radial-gradient(1px 1px at 120px 20px, white, transparent);
+  animation: snowfall 15s linear infinite;
+  animation-delay: -10s;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(200vh) translateX(100px);
+  }
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: white;
+  margin-bottom: var(--space-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 5rem;
+  }
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-2xl);
+  max-width: 90%;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .subtitle {
+    font-size: var(--font-size-xl);
+    max-width: 500px;
+  }
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-3xl);
+    max-width: 600px;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  width: 100%;
+  animation: bounce 2s ease-in-out 0.5s infinite;
+}
+
+@media (min-width: 640px) {
+  .buttonContainer {
+    flex-direction: row;
+    gap: var(--space-xl);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.snowflake {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+  animation: float 3s ease-in-out infinite;
+}
+
+@media (min-width: 640px) {
+  .snowflake {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .snowflake {
+    font-size: 4rem;
+    margin-bottom: var(--space-lg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}

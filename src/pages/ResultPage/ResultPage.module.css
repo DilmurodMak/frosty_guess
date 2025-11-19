@@ -1,0 +1,126 @@
+.resultPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-md);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .resultPage {
+    padding: var(--space-xl);
+  }
+}
+
+.resultPage.won {
+  background: 
+    linear-gradient(rgba(102, 126, 234, 0.7), rgba(118, 75, 162, 0.7)),
+    url('https://images.unsplash.com/photo-1519863436079-8436f74be632?w=1200&q=75&auto=format&fit=crop') center/cover no-repeat;
+}
+
+.resultPage.lost {
+  background: 
+    linear-gradient(rgba(240, 147, 251, 0.7), rgba(245, 87, 108, 0.7)),
+    url('https://images.unsplash.com/photo-1548777123-e216912df7d8?w=1200&q=75&auto=format&fit=crop') center/cover no-repeat;
+}
+
+.icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-lg);
+  animation: bounce 0.6s ease-in-out;
+}
+
+@media (min-width: 768px) {
+  .icon {
+    font-size: 6rem;
+    margin-bottom: var(--space-xl);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: white;
+  margin-bottom: var(--space-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-lg);
+  }
+}
+
+.message {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: var(--space-md);
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .message {
+    font-size: var(--font-size-xl);
+  }
+}
+
+.word {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: white;
+  margin-bottom: var(--space-2xl);
+  padding: var(--space-md) var(--space-lg);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .word {
+    font-size: var(--font-size-2xl);
+    padding: var(--space-lg) var(--space-xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .word {
+    font-size: var(--font-size-3xl);
+    padding: var(--space-lg) var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .buttonContainer {
+    flex-direction: row;
+    max-width: 500px;
+  }
+}

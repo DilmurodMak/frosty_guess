@@ -1,0 +1,172 @@
+.difficultyPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100vh;
+  padding: var(--space-lg);
+  background-color: #e8f4f8;
+  background: 
+    linear-gradient(rgba(232, 244, 248, 0.7), rgba(255, 255, 255, 0.75)),
+    url('https://images.unsplash.com/photo-1483664852095-d6cc6870702d?w=1200&q=75&auto=format&fit=crop') center/cover no-repeat;
+  overflow: auto;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .difficultyPage {
+    padding: var(--space-2xl);
+  }
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-2xl);
+  text-align: center;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .title {
+    margin-top: var(--space-3xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-3xl);
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    gap: var(--space-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .cards {
+    gap: var(--space-lg);
+  }
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  border: 3px solid transparent;
+  box-shadow: var(--shadow-md);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+.card:active {
+  transform: translateY(-4px);
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .cardIcon {
+    font-size: 2.5rem;
+  }
+}
+
+.cardTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .cardTitle {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+.cardDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .cardDescription {
+    font-size: var(--font-size-base);
+  }
+}
+
+.easy {
+  border-color: var(--color-success);
+}
+
+.easy:hover {
+  border-color: var(--color-success);
+  box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
+}
+
+.medium {
+  border-color: var(--color-warning);
+}
+
+.medium:hover {
+  border-color: var(--color-warning);
+  box-shadow: 0 10px 25px rgba(243, 156, 18, 0.3);
+}
+
+.hard {
+  border-color: var(--color-error);
+}
+
+.hard:hover {
+  border-color: var(--color-error);
+  box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+}
