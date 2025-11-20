@@ -10,6 +10,7 @@ const Button = ({
   disabled = false,
   type = 'button',
   ariaLabel,
+  className = '',
   ...props
 }) => {
   const classNames = [
@@ -17,6 +18,7 @@ const Button = ({
     styles[variant],
     styles[size],
     fullWidth && styles.fullWidth,
+    className,
   ]
     .filter(Boolean)
     .join(' ');

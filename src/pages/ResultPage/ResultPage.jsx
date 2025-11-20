@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import styles from './ResultPage.module.css';
-import { ROUTES } from '../../utils/constants';
+import { ROUTES, CATEGORIES } from '../../utils/constants';
 
 const ResultPage = () => {
   const navigate = useNavigate();
@@ -24,6 +24,29 @@ const ResultPage = () => {
     navigate(ROUTES.HOME);
   };
 
+  const categorySearchContext = React.useMemo(
+    () => ({
+      [CATEGORIES.ANIMALS]: 'animal',
+      [CATEGORIES.FRUITS]: 'fruit',
+      [CATEGORIES.COUNTRIES]: 'country',
+      [CATEGORIES.STATES]: 'US state',
+      [CATEGORIES.COMPANIES]: 'company',
+    }),
+    []
+  );
+
+  const handleLearnMore = () => {
+    if (!targetWord) return;
+    const searchTerms = [targetWord];
+
+    if (category && categorySearchContext[category]) {
+      searchTerms.push(categorySearchContext[category]);
+    }
+
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchTerms.join(' '))}`;
+    window.open(searchUrl, '_blank', 'noopener,noreferrer');
+  };
+
   if (hasWon === undefined) {
     return null;
   }
@@ -42,15 +65,25 @@ const ResultPage = () => {
           : 'Better luck next time!'}
       </p>
       
-      <div className={styles.word}>
-        {targetWord}
+      <div className={styles.wordSection}>
+        <div className={styles.word}>{targetWord}</div>
+        <Button
+          onClick={handleLearnMore}
+          variant="secondary"
+          size="small"
+          className={styles.learnMoreButton}
+          ariaLabel={`Learn more about ${targetWord}`}
+        >
+          <span className={styles.learnMoreIcon} aria-hidden="true" role="img">🔍</span>
+          <span>Learn More</span>
+        </Button>
       </div>
 
       <div className={styles.buttonContainer}>
         <Button
           onClick={handlePlayAgain}
           variant="primary"
-          size="large"
+          size="medium"
           ariaLabel="Play again with same settings"
         >
           Play Again
@@ -58,7 +91,7 @@ const ResultPage = () => {
         <Button
           onClick={handleBackToMenu}
           variant="outline"
-          size="large"
+          size="medium"
           ariaLabel="Return to main menu"
         >
           Main Menu
